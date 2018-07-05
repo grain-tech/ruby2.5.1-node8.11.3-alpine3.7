@@ -25,7 +25,7 @@ RUN set -x \
 
 ENV VERSION=v8.11.3 NPM_VERSION=5 YARN_VERSION=latest
 
-ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
+ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++"
 
 RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
   for server in ipv4.pool.sks-keyservers.net keyserver.pgp.com ha.pool.sks-keyservers.net; do \
@@ -67,8 +67,4 @@ RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnup
       rm ${YARN_VERSION}.tar.gz*; \
     fi; \
   fi
-  #apk del curl make gcc g++ python linux-headers binutils-gold gnupg ${DEL_PKGS} && \
-  #rm -rf ${RM_DIRS} /node-${VERSION}* /usr/share/man /tmp/* /var/cache/apk/* \
-  #  /root/.npm /root/.node-gyp /root/.gnupg /usr/lib/node_modules/npm/man \
-  #  /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html /usr/lib/node_modules/npm/scripts
 
