@@ -1,4 +1,4 @@
-FROM ruby:alpine
+FROM ruby:2.5.1-alpine3.7
 MAINTAINER Ernest Sim<ernest.codes@gmail.com>
 
 RUN set -x \
