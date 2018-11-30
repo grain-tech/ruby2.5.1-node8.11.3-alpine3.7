@@ -68,3 +68,10 @@ RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnup
   fi; \
   fi
 
+RUN gem install bundler
+
+RUN bundle config build.nokogiri --use-system-libraries
+
+COPY Gemfile Gemfile
+
+RUN bundle install
